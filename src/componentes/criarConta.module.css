@@ -1,0 +1,47 @@
+.ContainerSenha{
+   
+    width: 400px;
+    border-radius: 10px;
+  
+  
+    
+}
+.botaoCriar{
+    background-color: slateblue;
+    margin-top:20px;
+    margin-right:307px;
+    height:40px;
+     width:180px;
+    
+    border: solid 2px slateblue;
+    border-radius: 50px;
+    float: right;
+    cursor: pointer;
+    
+  }
+  .botaoCriar:hover{
+    background-color:rgba(105, 90, 205, 0.822);
+  border: rgba(105, 90, 205, 0.822);
+  }
+  .containerInput{
+    border: solid slateblue;
+    background-color:#1A1F24 ;
+    width: 800px;
+    height: 400px;
+   
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+   
+
+}
+.textoAviso{
+font-size: 13px;
+color: #d32f2f;
+margin-left: 150px;
+margin-top: 25px;
+
+}

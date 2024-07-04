@@ -1,0 +1,230 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+body{
+background-color: #111417;
+
+color: azure;
+}
+button{
+  margin:20px;
+}
+
+.campoTexto{
+  
+  
+  background-color: #111417;
+  color: aliceblue;
+ transition: height 0.3s;
+ margin-left: 10px;
+ margin-top: 10px;
+outline: none;
+resize: none;
+border-top: none;
+border-left: none;
+border-right: none;
+}
+.campoTexto2{
+  
+  
+  background-color: #111417;
+  color: aliceblue;
+ transition: height 0.3s;
+ margin-left: 10px;
+ margin-top: 2px;
+ 
+margin: 2px 10px;
+outline: none;
+resize: none;
+border: none;
+
+
+}
+.div-1{
+
+  height: 90px;
+ 
+       
+  background-color: slateblue;
+   color: azure;
+   border: gray solid 1px ;  
+   
+}
+.divAdicionar{
+  align-items: center;
+  background-color: #111417;
+  margin: 20px ;
+  
+
+  border: slateblue solid 5px ;
+  border-radius: 10px;
+  height: 200px;
+  transform: 0.2s;
+ 
+}
+.divPost{
+  animation-duration: 2s;
+  animation-name: deslizar;
+  overflow:hidden;
+}
+
+
+.divAdicionar2{
+  
+  background-color: rgba(79, 21, 21, 0);
+  
+  border: gray solid 2px ;
+  
+  height: 130px;
+  margin-top: 20px;;
+  margin-right: 10px;
+  margin-left: 10px;
+ 
+}
+.divPostagem{
+  background-color: rgba(79, 21, 21, 0);
+  margin-top: 20px;
+ margin-left: 20px;
+ margin-right: 20px;
+  border: gray solid 1px ;
+  
+  height: 50px;
+}
+
+
+
+
+@keyframes effect {
+  0% {
+      transform: translateY(0px) 
+  }
+
+  20% {
+      transform: translateY(-3px) 
+  }
+
+  40% {
+      transform: translateY(-1px) 
+  }
+
+  60% {
+      transform: translateY(3px)
+  }
+
+  80% {
+      transform: translateY(1px)
+  }
+
+  100% {
+      transform: translateY(0px) 
+  }
+}
+@keyframes deslizar {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+
+}
+
+
+
+
+.botaoAdd{
+  background-color: slateblue;
+  height:30px;
+  width: 80px;
+margin-top: 5px;
+  
+  border: solid 2px slateblue;
+  border-radius: 50px;
+  float: right;
+  cursor: pointer;
+  
+}
+.botaoAdd:hover{
+ 
+    
+   background-color:rgba(105, 90, 205, 0.899);
+  border: rgba(105, 90, 205, 0.822);
+
+}
+.iconeComentario{
+  color: slateblue;
+ 
+fill: slateblue;
+ width: 50px;
+ height: 28px;
+ 
+}
+.botaoComentario{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+ 
+ margin-top: 5px;
+  border-radius: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.botaoComentario:hover{
+  background-color: rgba(239, 225, 225, 0.066);
+  
+}
+.botoesConfirmar{
+  background-color: green;
+  height:30px;
+  width: 80px;
+margin-top: 5px;
+  border: solid 2px green;
+  border-radius: 50px;
+  float: right;
+  cursor: pointer;
+  visibility: hidden;
+  animation: effect 1s infinite;
+}
+.botoesCancelar{
+  background-color: red;
+  height:30px;
+  width: 80px;
+margin-top: 5px;
+  border: solid 2px red;
+  border-radius: 50px;
+  float: right;
+  cursor: pointer;
+  visibility: hidden;
+  animation: effect 1s infinite;
+}
+.divBotoes{
+margin-top: 20px;
+height: 50px;
+
+}
+.imagemIF{
+  height: 70px;
+  width: 70px;
+  margin-top: 20px;
+}
+
+.ContainerSenha{
+  background-color: #15161700;
+  width: 500px;
+  border-radius: 10px;
+  margin: 5px;
+  border: 5px white;
+  transform: translate(-50%, -50%);
+  color: white;
+
+  left: 50%;
+}
