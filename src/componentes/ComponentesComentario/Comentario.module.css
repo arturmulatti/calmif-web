@@ -1,0 +1,40 @@
+.divAdicionar{
+    align-items: center;
+    background-color: #111417;
+    margin: 20px ;
+    
+  
+    
+    border-radius: 10px;
+    /*height: 200px;*/
+    transform: 0.2s;
+   
+  }
+  .divAdicionar:hover{
+    background-color: rgba(239, 225, 225, 0.066);
+  }
+  .textAreaDiv{
+
+
+
+background-color:#111417;
+
+
+resize: none;
+border:none;
+  }
+  .divUsuario{
+    
+    background-color: #5b606537 ;
+    max-height: 200px;
+    overflow-y: auto;
+    
+    border-radius: 20px;
+    word-wrap: break-word; /* Permite quebrar palavras longas */
+    overflow-wrap: break-word; /* Garante que o texto quebre dentro do container */
+    white-space: pre-wrap; /* Mantém quebras de linha e espaços */
+    max-width: 100%; /* Garante que o texto ocupe no máximo 100% do container */
+    box-sizing: border-box; 
+  
+  }
+  

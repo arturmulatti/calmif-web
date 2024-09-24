@@ -1,4 +1,4 @@
-import ContainerCriarConta from "../componentes/ContainerCriarConta"
+import ContainerCriarConta from "../componentes/ComponenetesCriarSenha/ContainerCriarConta"
 import React from "react"
 function CriarConta(){
     return(

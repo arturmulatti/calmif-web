@@ -80,7 +80,7 @@ function ContainerSenha() {
         <button className={styles.botaoCriar} onClick={logar}>
           <p style={{ fontSize: "15px" }}>Login</p>
         </button>
-        <p style={{ marginLeft: "365px", fontSize: "13px" }} className={styles.hooverTexto} >Cadastre-se</p>
+        <p style={{ marginLeft: "365px", fontSize: "13px" }} className={styles.hooverTexto} ><a href="/CriarConta" style={{textDecoration:"none"}}>Cadastre-se</a></p>
       </div>
     </div>
   );

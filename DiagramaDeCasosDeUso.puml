@@ -1,0 +1,29 @@
+@startuml
+    :Supervisor:
+    
+    "Realizar login" as (UC01)
+    "Criar conta" as (UC02)
+    "Gerenciar postagens" as (UC03)
+    "Gerenciar comentários" as (UC04)
+    "Deletar comentário" as (UC05)
+    "Deletar postagem" as (UC06)
+    "Gerenciar supervisores" as (UC07)
+    "Gerenciar postagens" as (UC08)
+    "Gerenciar comentários" as (UC09)
+    "Visualizar comentários de uma postagem" as (UC10)
+    "Buscar comentários" as (UC11)
+    :Usuario: -right-> UC01
+    :Usuario: -down-> UC02
+    :Usuario: -down-> (UC03)
+    :Usuario: -up-> (UC04)
+    :Usuario: -left-> (UC05)
+    :Usuario: --> (UC06)
+    :Usuario: -up-> (UC10)
+    :Usuario: -up-> (UC11)
+    :Usuario: <|-down- :Supervisor:
+    :Supervisor: -right-> UC08
+    :Supervisor: -left-> UC09
+    :Supervisor: -up-> UC07
+
+    
+@enduml

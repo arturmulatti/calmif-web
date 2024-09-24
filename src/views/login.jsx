@@ -1,4 +1,4 @@
-import ContainerSenha from "../componentes/ContainerSenha"
+import ContainerSenha from "../componentes/ComponentesLogin/ContainerSenha"
 import React from "react"
 
 export default function Login(){

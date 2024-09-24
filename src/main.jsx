@@ -1,18 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import router from './route.jsx'
-import { RouterProvider } from 'react-router-dom'
-import ContainerDigitar from './componentes/ContainerDigitar.jsx'
+import App from './route.jsx'
+
+
 
 
 ReactDOM.createRoot(document.getElementById('root1')).render(
 
   <React.StrictMode>
     
-  <RouterProvider router={router }/>
   
-
+  
+<App/>
   
   
 
