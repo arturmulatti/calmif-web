@@ -2,8 +2,9 @@ import { FcCheckmark } from "react-icons/fc";
 import { MdOutlineCancel } from "react-icons/md";
 import { Box, Grid } from "@mui/material";
 import { FaChevronCircleRight } from "react-icons/fa";
+import { GiConfirmed } from "react-icons/gi";
 import axios from "axios";
-import { useState } from "react";
+import { useState,useEffect,useRef } from "react";
 
 export default function PostAprovar({ id, titulo, conteudo, renderizarPost }) {
   const http = axios.create({
@@ -12,29 +13,28 @@ export default function PostAprovar({ id, titulo, conteudo, renderizarPost }) {
       "content-type": "application/json",
     },
   });
-
+ 
   // Estado para controlar se a div está visível ou não
+  
   const [visivel, setVisivel] = useState(true);
-
+  const postRef = useRef(null);
+  const titleRef = useRef(null);
+  const textRef = useRef(null);
   const aprovar = async () => {
     var url = "/confirmarPost/" + id;
 
     try {
-      var divPost = document.getElementById("divAprovacao")
-      divPost.style.animationName = "slideOutLeft"
+      var divPost = document.getElementById("divAprovacao");
+      divPost.style.animationName = "slideOutLeft";
       // Oculta a div
       await http.patch(url, { aprovado: 1 });
 
       // Espera o término da animação (controlado pelo CSS)
-      
-      
-        renderizarPost(); 
-     
-      
-      divPost.addEventListener("animationend", () => {
-       divPost.style.animationName = "deslizar2"
 
-        
+      renderizarPost();
+
+      divPost.addEventListener("animationend", () => {
+        divPost.style.animationName = "deslizar2";
       });
     } catch (error) {
       console.error("Erro ao aprovar o post:", error);
@@ -45,21 +45,17 @@ export default function PostAprovar({ id, titulo, conteudo, renderizarPost }) {
     var url = "/confirmarPost/" + id;
 
     try {
-      var divPost = document.getElementById("divAprovacao")
-      divPost.style.animationName = "slideOutLeft"
+      var divPost = document.getElementById("divAprovacao");
+      divPost.style.animationName = "slideOutLeft";
       // Oculta a div
       await http.patch(url, { aprovado: 0 });
 
       // Espera o término da animação (controlado pelo CSS)
-      
-      
-        renderizarPost(); 
-     
-      
-      divPost.addEventListener("animationend", () => {
-       divPost.style.animationName = "deslizar2"
 
-        
+      renderizarPost();
+
+      divPost.addEventListener("animationend", () => {
+        divPost.style.animationName = "deslizar2";
       });
     } catch (error) {
       console.error("Erro ao aprovar o post:", error);
@@ -93,12 +89,15 @@ export default function PostAprovar({ id, titulo, conteudo, renderizarPost }) {
                   className="campoTexto"
                   value={titulo}
                   readOnly
+                  ref={titleRef}
                 ></textarea>
                 <textarea
                   cols="151"
                   className="campoTexto2"
                   value={conteudo}
                   readOnly
+                  
+                  ref={textRef}
                 ></textarea>
               </div>
               <div></div>
@@ -129,17 +128,18 @@ export default function PostAprovar({ id, titulo, conteudo, renderizarPost }) {
                     height: "70px",
                     justifyContent: "center",
                     alignItems: "center",
+                    marginTop: "10px",
                   }}
                 >
-                  <MdOutlineCancel
+                  <GiConfirmed
                     size={50}
                     style={{
                       visibility: "visible",
                       alignContent: "center",
                       justifyContent: "center",
                     }}
-                    fill="red"
-                    onClick={reprovar}
+                    fill="green"
+                    onClick={aprovar}
                   />
                 </button>
                 <button
@@ -151,15 +151,16 @@ export default function PostAprovar({ id, titulo, conteudo, renderizarPost }) {
                     alignItems: "center",
                     marginTop: "10px",
                   }}
-                  onClick={aprovar}
+                  onClick={reprovar}
                 >
-                  <FcCheckmark
+                  <MdOutlineCancel
+                    size={50}
                     style={{
-                      fontSize: "50px",
                       color: "white",
                       flexShrink: "0",
                       alignContent: "center",
                     }}
+                    fill="red"
                   />
                 </button>
               </div>

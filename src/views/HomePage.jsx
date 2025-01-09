@@ -5,13 +5,13 @@ import axios from "axios";
 import ContainerDigitar from "../componentes/ComponentesHomePage/ContainerDigitar.jsx";
 import Postagem from "../componentes/ComponentesHomePage/Postagem.jsx";
 import ReactDOM from "react-dom/client";
-
+import { useNavigate } from "react-router-dom";
 function HomePage() {
   var [posts, setPosts] = useState([]);
   const [atualizarPosts, setAtualizar] = useState([false]);
   const [titulo, setTitulo] = useState([]);
   const [texto, setTexto] = useState([]);
-
+  const navigate = useNavigate();
   const http = axios.create({
     baseURL: "http://localhost:8000/",
     headers: {

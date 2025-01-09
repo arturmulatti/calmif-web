@@ -7,8 +7,9 @@ import { MdExitToApp } from "react-icons/md";
 import { FaBookOpen } from "react-icons/fa";
 import { FaLayerGroup } from "react-icons/fa6";
 import { FaClipboardCheck } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 function NavBar(props) {
+  const navigate = useNavigate();
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -49,6 +50,12 @@ function NavBar(props) {
       },
     },
   }));
+  function toAprovar (){
+    navigate("/AprovarPost")
+  }
+  function toRelatos(){
+    navigate("/Relatos")
+  }
   return (
     <div className="div-1">
       <img src={"/Calmif (1).png"} alt="IFPR" className="imagemIF" />
@@ -63,6 +70,7 @@ function NavBar(props) {
           alignItems: "center",
           justifyContent: "center",
         }}
+        onClick={toRelatos}
       >
         <FaBookOpen style={{ marginRight: "5px" }} />
         Relatos motivacionais
@@ -79,13 +87,14 @@ function NavBar(props) {
         className="botaoNavBar"
         style={{
           marginLeft: "20px",
-          width: "139px",
+          width: "175px",
           height: "30px",
           border: "black",
         }}
+        onClick={toAprovar}
       >
-        <FaClipboardCheck style={{ marginRight: "5px" }} />
-        Aprovar posts
+        <FaClipboardCheck style={{ marginRight: "5px" }} size={16}/>
+        Aprovar postagens
       </button>
       <Search>
         <SearchIconWrapper>
@@ -95,7 +104,7 @@ function NavBar(props) {
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
           className="textAreaPesquisa"
-          style={{ width: "800px" }}
+          style={{ width: "740px" }}
           id="barraDePesquisa"
         />
       </Search>

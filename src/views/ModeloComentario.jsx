@@ -32,7 +32,7 @@ export default function ModeloComentario(props) {
     }, [atualizar]);
 
     const submitForm = () => {
-        const container = document.getElementById("containerDigitar")
+        const container = document.getElementById("containerDigitar");
         const textoComentario = document.getElementById("textoComentario").value;
         setConteudo(textoComentario);
 
@@ -43,31 +43,41 @@ export default function ModeloComentario(props) {
                 setAtualizar(!atualizar); // Atualiza os comentários após adicionar um novo
             })
             .catch(err => console.error(err));
-          container.remove()
-    }
+
+        if (container) {
+            container.remove();
+        }
+    };
 
     function mostrarComentarios() {
         setComentarioAberto(!comentarioAberto);
     }
 
+    function abrirComentario() {
+        setComentarioAberto(true);
+    }
+
     return (
         <>
             <React.StrictMode>
-                <PostagemComentario 
+                <PostagemComentario
                     abrirComentario={() => {
                         mostrarComentarios();
-                        detailsRef.current.scrollIntoView({ behavior: 'smooth' });
+                        if (detailsRef.current) {
+                            detailsRef.current.scrollIntoView({ behavior: 'smooth' });
+                        }
                     }}
                     titulo={props.titulo}
                     texto={props.conteudo}
                     submitForm={submitForm}
+                    abrirComentar={abrirComentario}
                 />
-                <ContainerComentario 
-                    abrirComentario={comentarioAberto} 
-                    detailsRef={detailsRef} 
+                <ContainerComentario
+                    abrirComentario={comentarioAberto}
+                    detailsRef={detailsRef}
                     comentarios={comentarios}
                     responderComentario={submitForm}
-                    submitForm = {submitForm} // Passa os comentários como props
+                    submitForm={submitForm} // Passa os comentários como props
                 />
             </React.StrictMode>
         </>

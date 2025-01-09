@@ -1,0 +1,50 @@
+@startuml classs
+!theme plain
+class Supervisor {
+}
+
+class Usuario {
+email : String
+senha : String
+utlimoAcesso: Date
+}
+
+class Postagem {
+conteudo : String
+titulo : String
+}
+
+class Comentario {
+conteudo : String
+}
+
+class PostagemAuditavel {
+publicacaoAutorizada: boolean
+dataAvaliacao: Date
+dataPublicacao: Date
+dataEdicao: Date
+}
+
+class Tema {
+nome : String
+sensivel: boolean
+}
+
+Usuario <|- Supervisor
+
+
+Comentario "0..*" right> "1" Postagem : é feito em uma >
+
+
+Postagem "0..*" down> "1" Tema : relacionada a um >
+
+PostagemAuditavel "0..*" up> "1" Supervisor : avaliado por um >
+
+PostagemAuditavel "0..*" up> "1" Usuario : é postado por um >
+
+Postagem --|> PostagemAuditavel
+
+Comentario --|> PostagemAuditavel
+
+
+@enduml

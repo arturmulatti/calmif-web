@@ -1,72 +1,63 @@
-*{
+* {
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
-body{
-background-color: #111417;
+body {
+  background-color: #111417;
 
-color: azure;
+  color: azure;
 }
-button{
-  margin:20px;
+button {
+  margin: 20px;
 }
 
-.campoTexto{
-  
-  
+.campoTexto {
   background-color: #111417;
   color: aliceblue;
- transition: height 0.3s;
- margin-left: 10px;
- margin-top: 10px;
-outline: none;
-resize: none;
-border-top: none;
-border-left: none;
-border-right: none;
+  transition: height 0.3s;
+  margin-left: 10px;
+  margin-top: 10px;
+  outline: none;
+  resize: none;
+  width: 98%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
-.campoTexto2{
-  
-  
+.campoTexto2 {
   background-color: #111417;
   color: aliceblue;
- transition: height 0.3s;
+  transition: height 0.3s;
+  width: 98%;
+  margin-right: 10px;
+  margin-top: 2px;
 
- margin-right: 10px;
- margin-top: 2px;
- 
-margin: 2px 10px;
-outline: none;
-resize: none;
-border: none;
-
-
+  margin: 2px 10px;
+  outline: none;
+  resize: none;
+  border: none;
 }
-.div-1{
-
+.div-1 {
   height: 90px;
   display: flex;
   align-items: center;
-       
+  width: 98%;
   background-color: slateblue;
-   color: azure;
-   border: gray solid 1px ;  
-   
+  color: azure;
+  border: gray solid 1px;
 }
-.divAdicionar{
+.divAdicionar {
   align-items: center;
   background-color: #111417;
-  margin:20px;
-  
+  margin: 20px;
 
-  border: slateblue solid 5px ;
+  border: slateblue solid 5px;
   border-radius: 10px;
   height: 200px;
   transform: 0.2s;
- 
 }
 
 @keyframes deslizar2 {
@@ -105,62 +96,55 @@ border: none;
   animation: slideInRight 1s forwards;
 }
 
-.divPost{
-  animation-duration: 2s;
+.divPost {
+  animation-duration: 1s;
   animation-name: deslizar;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-
-
-.divAdicionar2{
-  
+.divAdicionar2 {
   background-color: rgba(79, 21, 21, 0);
-  
-  border: gray solid 2px ;
+
+  border: gray solid 2px;
   border-radius: 5px;
   height: 130px;
-  margin-top: 20px;;
+  margin-top: 20px;
   margin-right: 10px;
   margin-left: 10px;
- 
 }
-.divPostagem{
+.divPostagem {
   background-color: rgba(79, 21, 21, 0);
   margin-top: 20px;
- margin-left: 20px;
- margin-right: 20px;
-  border: gray solid 1px ;
-  
+  margin-left: 20px;
+  margin-right: 20px;
+  border: gray solid 1px;
+
   height: 50px;
 }
 
-
-
-
 @keyframes effect {
   0% {
-      transform: translateY(0px) 
+    transform: translateY(0px);
   }
 
   20% {
-      transform: translateY(-3px) 
+    transform: translateY(-3px);
   }
 
   40% {
-      transform: translateY(-1px) 
+    transform: translateY(-1px);
   }
 
   60% {
-      transform: translateY(3px)
+    transform: translateY(3px);
   }
 
   80% {
-      transform: translateY(1px)
+    transform: translateY(1px);
   }
 
   100% {
-      transform: translateY(0px) 
+    transform: translateY(0px);
   }
 }
 @keyframes deslizar {
@@ -173,106 +157,91 @@ border: none;
     margin-left: 0%;
     width: 100%;
   }
-
 }
 
-
-
-
-.botaoAdd{
+.botaoAdd {
   background-color: slateblue;
-  height:30px;
+  height: 30px;
   width: 80px;
-margin-top: 5px;
-  
+  margin-top: 5px;
+
   border: solid 2px #6a5acd;
   border-radius: 50px;
   float: right;
   cursor: pointer;
-  
 }
-.botaoAdd:hover{
- 
-    
-   background-color:rgba(105, 90, 205, 0.899);
+.botaoAdd:hover {
+  background-color: rgba(105, 90, 205, 0.899);
   border: rgba(105, 90, 205, 0.822);
-
 }
-.botaoSair{
+.botaoSair {
   width: 40px;
   height: 40px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer; 
+  cursor: pointer;
 }
-.botaoSair:hover{
-  background-color:rgba(120, 106, 209, 0.623);
+.botaoSair:hover {
+  background-color: rgba(120, 106, 209, 0.623);
   border: rgba(105, 90, 205, 0.822);
-  
 }
-.iconeComentario{
+.iconeComentario {
   color: slateblue;
- 
-fill: slateblue;
- width: 50px;
- height: 28px;
- 
+
+  width: 50px;
+  height: 28px;
 }
-.botaoComentario{
+.botaoComentario {
   background-color: transparent;
   border: none;
   cursor: pointer;
- 
- margin-top: 5px;
+
+  margin-top: 5px;
   border-radius: 100px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-.botaoComentario:hover{
+.botaoComentario:hover {
   background-color: rgba(239, 225, 225, 0.066);
-  
 }
-.botoesConfirmar{
+.botoesConfirmar {
   background-color: green;
-  height:30px;
+  height: 30px;
   width: 80px;
-margin-top: 5px;
-  border: solid 2px green;
+  margin-top: 5px;
+  border: solid 2px #008000;
   border-radius: 50px;
   float: right;
   cursor: pointer;
   visibility: hidden;
-  animation: effect 1s infinite;
 }
-.botoesCancelar{
-  background-color: red;
-  height:30px;
+.botoesCancelar {
+  background-color: #ff0000;
+  height: 30px;
   width: 80px;
-margin-top: 5px;
+  margin-top: 5px;
   border: solid 2px red;
   border-radius: 50px;
   float: right;
   cursor: pointer;
   visibility: hidden;
-  animation: effect 1s infinite;
 }
-.divBotoes{
-margin-top: 20px;
-height: 50px;
-
+.divBotoes {
+  margin-top: 20px;
+  height: 50px;
 }
-.imagemIF{
+.imagemIF {
   height: 70px;
   width: 70px;
-  
 }
 
-.botaoNavBar{
-  background-color:  #2d9d3f;
+.botaoNavBar {
+  padding: 25px;
+  background-color: #2d9d3f;
   border-radius: 20px;
   font-size: 14px;
   margin-left: 10px;
@@ -280,9 +249,13 @@ height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+.botaoNavBar:hover {
+  background-color: #36b74ccd;
 }
 
-.ContainerSenha{
+.ContainerSenha {
   background-color: #15161700;
   width: 500px;
   border-radius: 10px;
@@ -293,17 +266,29 @@ height: 50px;
 
   left: 50%;
 }
-.containerUsuario{
- 
-    background-color: slateblue;
-    
-    width: 200px;
-    border-radius: 100px;
-    height: 24px;
-   
-    
-    
-      
+.containerUsuario {
+  background-color: slateblue;
 
+  width: 200px;
+  border-radius: 100px;
+  height: 24px;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background: 111417; /* Cor do fundo da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5b606537; /* Cor do botão da barra de rolagem */
+  border-radius: 10px; /* Bordas arredondadas */
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: 111417; /* Cor do botão ao passar o mouse */
+}

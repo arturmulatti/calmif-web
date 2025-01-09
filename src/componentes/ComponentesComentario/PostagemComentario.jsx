@@ -1,68 +1,96 @@
 import { RiAddCircleLine } from "react-icons/ri";
 import { FaRegComment } from "react-icons/fa";
-import { useState } from "react";
-import ReactDOM from 'react-dom/client';
+import { useState, useLayoutEffect, useRef } from "react";
+import ReactDOM from "react-dom/client";
 import ContainerDigitarComentario from "./ContainerDigitarComentario";
-import { useRef, useEffect } from "react";
 
 function PostagemComentario(props) {
-    const detailsRef = useRef(null);
-    const [referencia, setReferencia] = useState([]);
+  const detailsRef = useRef(null);
+  const [containerComentar, setContainerComentar] = useState(false);
 
-    useEffect(() => {
-        if (detailsRef.current) {
-            detailsRef.current.scrollIntoView({ behavior: 'smooth' });
-            setReferencia(false);
-        }
-    }, [referencia]);
-
-   
-    function criarDigitarComentario() {
-        const rootComentario = document.getElementById("rootComentario");
-        const rootDiv = document.createElement('div');
-        rootComentario.appendChild(rootDiv); // Adiciona a nova div após o último comentário
-
-        ReactDOM.createRoot(rootDiv).render(
-            <div ref={detailsRef}> {/* Associa o ref ao novo comentário */}
-                <ContainerDigitarComentario submitForm={props.submitForm} responderComentario={criarDigitarComentario}/>
-            </div>
-        );
-        setReferencia(true); // Aciona o efeito de scroll
+  useLayoutEffect(() => {
+    if (containerComentar && detailsRef.current) {
+      detailsRef.current.scrollIntoView({ behavior: "smooth" });
     }
-    function responderComentario(){
-        const rootComentario = document.getElementById("rootComentario");
-        const rootDiv = document.createElement('div');
-        rootComentario.appendChild(rootDiv); // Adiciona a nova div após o último comentário
+  }, [containerComentar]);
 
-        ReactDOM.createRoot(rootDiv).render(
-            <div ref={detailsRef}> {/* Associa o ref ao novo comentário */}
-                <ContainerDigitarComentario submitForm={props.submitForm} />
-            </div>
-        );
-        setReferencia(true); // Aciona o efeito de scroll
+  function criarDigitarComentario() {
+    // Se o container já foi renderizado, apenas faz o scroll de volta
+    if (containerComentar) {
+      if (detailsRef.current) {
+        detailsRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
     }
-    return (
-        <div className="divPost">
-            <div className="divAdicionar" style={{ height: props.alturaDiv1 }}>
-                <div className='divAdicionar2' style={{ height: props.alturaDiv2 }}>
-                    <div ></div>
-                    <textarea cols="213" rows="2" className='campoTexto' value={props.titulo} readOnly></textarea>
-                    <textarea cols="200" rows={props.alturaTextArea} className='campoTexto2' value={props.texto} readOnly></textarea>
-                </div>
-                <div>
-                    <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
-                        <button className="botaoComentario" style={{ marginLeft: "1260px", width: "200px" }} onClick={criarDigitarComentario}>
-                            <RiAddCircleLine className="iconeComentario" />
-                            <p>Comentar</p>
-                        </button>
-                        <button className="botaoComentario" onClick={props.abrirComentario}>
-                            <FaRegComment className="iconeComentario" />
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    // Caso contrário, cria um novo container
+    props.abrirComentar();
+    const rootComentario = document.getElementById("rootComentario");
+    const rootDiv = document.createElement("div");
+    rootComentario.appendChild(rootDiv);
+
+    // Renderiza o componente ContainerDigitarComentario na nova div
+    ReactDOM.createRoot(rootDiv).render(
+      <div ref={detailsRef}>
+        {" "}
+        {/* Ref para permitir o scroll automático */}
+        <ContainerDigitarComentario
+          submitForm={() => {
+            props.submitForm();
+            setContainerComentar(false); // Libera para renderizar um novo container após o envio
+          }}
+          responderComentario={criarDigitarComentario}
+        />
+      </div>
     );
+
+    // Ativa o efeito de scroll após renderizar o componente
+    setContainerComentar(true);
+  }
+
+  return (
+    <div className="divPost">
+      <div className="divAdicionar" style={{ height: props.alturaDiv1 }}>
+        <div className="divAdicionar2" style={{ height: props.alturaDiv2 }}>
+          <textarea
+            cols="213"
+            rows="2"
+            className="campoTexto"
+            value={props.titulo}
+            readOnly
+          ></textarea>
+          <textarea
+            cols="200"
+            rows={props.alturaTextArea}
+            className="campoTexto2"
+            value={props.texto}
+            readOnly
+          ></textarea>
+        </div>
+        <div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <button
+              className="botaoComentario"
+              style={{ marginLeft: "1260px", width: "200px" }}
+              onClick={criarDigitarComentario}
+            >
+              <RiAddCircleLine className="iconeComentario" fill="slateblue"/>
+              <p>Comentar</p>
+            </button>
+            <button className="botaoComentario" onClick={props.abrirComentario}>
+              <FaRegComment className="iconeComentario" fill="slateblue" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default PostagemComentario;
